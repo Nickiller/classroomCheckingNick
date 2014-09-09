@@ -1,8 +1,9 @@
 package domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class query {
+public class query implements Serializable{
 
 	private String startDate;
 	private int duration;

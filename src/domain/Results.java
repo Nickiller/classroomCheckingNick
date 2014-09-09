@@ -1,8 +1,9 @@
 package domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Results {
+public class Results implements Serializable{
 	private query q;
 	private ArrayList<Result> resultList;
 	

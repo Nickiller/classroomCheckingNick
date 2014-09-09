@@ -65,6 +65,11 @@ public class DBManager {
 		QuerySql sqlquery = new QuerySql();
 		String str = " where ";
 		for (String field : map.keySet()) {
+			//原先微信里那句有点问题，你看下面注释就明白了，我在UI那边加了空值控制了，估计不会再传过来空值，不过你最好再想想加一句 @猪头
+			/*if(map.get(field).isEmpty()) {
+				str += "(" + field + "=\"" + "EMPTY" + "\"" + ")" + "AND";
+				continue;
+			}*/
 			str += "(";
 			for (String value : map.get(field)) {
 				str += field + "=\"" + value + "\" OR ";
@@ -82,7 +87,7 @@ public class DBManager {
 			result.putAll(temp);
 		}
 		// Log.v("checkAndSearch result",result.toString());
-		return map;
+		return result;
 	}
 
 	// need updating for isA
